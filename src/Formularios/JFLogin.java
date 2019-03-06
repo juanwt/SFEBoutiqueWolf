@@ -48,7 +48,7 @@ public class JFLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "La contraseña no es válida ");
             } else {
                 if (cboTipo.getSelectedItem().toString().equals("Administrador")) {
-
+                    mp.getBtnResetearClave().setEnabled(false);
                     mp.setVisible(true);
                     dispose();
                 } else {
@@ -56,7 +56,8 @@ public class JFLogin extends javax.swing.JFrame {
                         mp.getBtnMantenimiento().setEnabled(false);
                         mp.getBtnContabilidad().setEnabled(false);
                         mp.getBtnReportesMenu().setEnabled(false);
-                        mp.getBtnSeguridad().setEnabled(false);
+                        mp.getBtnResetarClaveAdmin().setEnabled(false);
+                        mp.getBtnUsuariosSistema().setEnabled(false);
                         mp.setVisible(true);
                         dispose();
                     } else {
@@ -64,9 +65,10 @@ public class JFLogin extends javax.swing.JFrame {
                             mp.getBtnMantenimiento().setEnabled(false);
                             mp.getBtnContabilidad().setEnabled(false);
                             mp.getBtnReportesMenu().setEnabled(false);
-                            mp.getBtnSeguridad().setEnabled(false);
+                            mp.getBtnResetarClaveAdmin().setEnabled(false);
                             mp.getBtnCompras().setEnabled(false);
                             mp.getBtnInvetarioBodega().setEnabled(false);
+                            mp.getBtnUsuariosSistema().setEnabled(false);
                             mp.setVisible(true);
                             dispose();
 
@@ -74,9 +76,10 @@ public class JFLogin extends javax.swing.JFrame {
                             if ((cboTipo.getSelectedItem().toString().equals("Gerente"))) {
                                 mp.getBtnMantenimiento().setEnabled(false);
                                 mp.getBtnContabilidad().setEnabled(false);
-                                mp.getBtnSeguridad().setEnabled(false);
+                                mp.getBtnResetarClaveAdmin().setEnabled(false);
                                 mp.getBtnCompras().setEnabled(false);
                                 mp.getBtnFacturacionMenu().setEnabled(false);
+                                mp.getBtnUsuariosSistema().setEnabled(false);
                                 mp.setVisible(true);
                                 dispose();
                             }
