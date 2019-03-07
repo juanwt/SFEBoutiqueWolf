@@ -53,8 +53,8 @@ public class JFMenu extends javax.swing.JFrame {
         btnInventario = new javax.swing.JMenuItem();
         btnReportes = new javax.swing.JMenuItem();
         btnContabilidad = new javax.swing.JMenu();
-        btnRetenciones = new javax.swing.JMenuItem();
         btnNotasdeDevito = new javax.swing.JMenuItem();
+        btnRetenciones = new javax.swing.JMenuItem();
         btnNotasdeCredito = new javax.swing.JMenuItem();
         btnReportesMenu = new javax.swing.JMenu();
         btnReportesClientes = new javax.swing.JMenuItem();
@@ -66,6 +66,7 @@ public class JFMenu extends javax.swing.JFrame {
         btnSeguridad = new javax.swing.JMenu();
         btnUsuariosSistema = new javax.swing.JMenuItem();
         btnResetearClave = new javax.swing.JMenuItem();
+        btnResetarClaveAdmin = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +76,7 @@ public class JFMenu extends javax.swing.JFrame {
         JPEscritorio.setLayout(JPEscritorioLayout);
         JPEscritorioLayout.setHorizontalGroup(
             JPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
+            .addGap(0, 824, Short.MAX_VALUE)
         );
         JPEscritorioLayout.setVerticalGroup(
             JPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,15 +281,6 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
 
-        btnRetenciones.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnRetenciones.setText("Retenciones");
-        btnRetenciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRetencionesActionPerformed(evt);
-            }
-        });
-        btnContabilidad.add(btnRetenciones);
-
         btnNotasdeDevito.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnNotasdeDevito.setText("Notas de Debito");
         btnNotasdeDevito.addActionListener(new java.awt.event.ActionListener() {
@@ -297,6 +289,15 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
         btnContabilidad.add(btnNotasdeDevito);
+
+        btnRetenciones.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRetenciones.setText("Retenciones");
+        btnRetenciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetencionesActionPerformed(evt);
+            }
+        });
+        btnContabilidad.add(btnRetenciones);
 
         btnNotasdeCredito.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnNotasdeCredito.setText("Notas de Credito");
@@ -406,6 +407,15 @@ public class JFMenu extends javax.swing.JFrame {
         });
         btnSeguridad.add(btnResetearClave);
 
+        btnResetarClaveAdmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnResetarClaveAdmin.setText("Resetear clave Admin");
+        btnResetarClaveAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetarClaveAdminActionPerformed(evt);
+            }
+        });
+        btnSeguridad.add(btnResetarClaveAdmin);
+
         jMenuBar1.add(btnSeguridad);
 
         setJMenuBar(jMenuBar1);
@@ -416,8 +426,7 @@ public class JFMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JPEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(JPEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,7 +490,6 @@ public class JFMenu extends javax.swing.JFrame {
         JIFProductos productos=new JIFProductos();
         getJPEscritorio().removeAll();
         getJPEscritorio().add(productos);
-        getJPEscritorio().revalidate();
         productos.setSize(736, 441);
         productos.setVisible(true);
     }//GEN-LAST:event_btnProductosActionPerformed
@@ -629,7 +637,7 @@ public class JFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReportesContablesActionPerformed
 
     private void btnResetearClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearClaveActionPerformed
-        JIFResetearClave clave=new JIFResetearClave();
+        JIFCambiarClaveUsuario clave=new JIFCambiarClaveUsuario();
         getJPEscritorio().removeAll();
         getJPEscritorio().add(clave);
         clave.setSize(736, 441);
@@ -663,6 +671,17 @@ public class JFMenu extends javax.swing.JFrame {
     private void btnSeguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguridadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSeguridadActionPerformed
+
+    private void btnResetarClaveAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetarClaveAdminActionPerformed
+        JIFCambiarClaveAdmin cambiarClaveAdmin=new JIFCambiarClaveAdmin();
+        getJPEscritorio().removeAll();
+        getJPEscritorio().add(cambiarClaveAdmin);
+        getJPEscritorio().revalidate();
+        cambiarClaveAdmin.setSize(736, 441);
+        cambiarClaveAdmin.setVisible(true);
+        getJPEscritorio().setOpaque(false);
+        cambiarClaveAdmin.setOpaque(false);
+    }//GEN-LAST:event_btnResetarClaveAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -724,6 +743,7 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JMenu btnReportesMenu;
     private javax.swing.JMenuItem btnReportesProductos;
     private javax.swing.JMenuItem btnReportesProveedores;
+    private javax.swing.JMenuItem btnResetarClaveAdmin;
     private javax.swing.JMenuItem btnResetearClave;
     private javax.swing.JMenuItem btnRetenciones;
     private javax.swing.JMenu btnSeguridad;
@@ -1211,5 +1231,19 @@ public class JFMenu extends javax.swing.JFrame {
      */
     public void setjMenuBar1(javax.swing.JMenuBar jMenuBar1) {
         this.jMenuBar1 = jMenuBar1;
+    }
+
+    /**
+     * @return the btnResetarClaveAdmin
+     */
+    public javax.swing.JMenuItem getBtnResetarClaveAdmin() {
+        return btnResetarClaveAdmin;
+    }
+
+    /**
+     * @param btnResetarClaveAdmin the btnResetarClaveAdmin to set
+     */
+    public void setBtnResetarClaveAdmin(javax.swing.JMenuItem btnResetarClaveAdmin) {
+        this.btnResetarClaveAdmin = btnResetarClaveAdmin;
     }
 }
